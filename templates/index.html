@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FIFA Ultimate Selection</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <style>
+      .bg-color {
+          background-color: RGBA(0, 0, 0, 0.41);
+          height: 80vh;
+      }
+  
+  .nav>li>a {
+      padding: 0px;
+      margin-top: 30px;
+  }
+  
+  .navbar-brand {
+      margin-top: 40px;
+      padding: 0px;
+      height: inherit;
+      font-family: 'Lato', sans-serif;
+  }
+  
+  .check{
+      display: block;
+      height: 40px;
+      margin-top: 20px;
+      margin-left: 13px;
+      width: 230px;
+  }
+  
+  .check1{
+      display: block;
+      height: 40px;
+      margin-top: 20px;
+      width: 230px;
+      margin-bottom:30px;
+  }
+  
+  .stylebaaji{
+      height: 30vh;
+  }
+  
+  input[type=text]{
+      margin: 20px 0;
+      margin-top: 5px;
+      padding-left: 10px;
+      height:35px;
+  }
+  
+  
+  
+
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script>
+function searchSimilar(){
+    var text = $("#playertosearch").val();
+
+    $.ajax({
+      url: "/similar",
+      type: "GET",
+      data: {jsdata: text},
+      success: function(response) {
+         alert(data[0])
+        // $("#similarss").html(response);
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
+    });
+}
+</script>
+  <!-- =======================================================
+   
+  ======================================================= -->
+</head>
+
+<body>
+  <!--header-->
+  <header class="main-header" id="header">
+    <div class="bg-color">
+      <!--nav-->
+      <nav class="nav navbar-default">
+        <div class="container">
+          <div class="col-md-12">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="fa fa-bars"></span>
+                        </button>
+              <a href="index.html" class="navbar-brand">FIFA Ultimate Selection</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#header">Home</a></li>
+                <li><a href="#feature">Top 5 Players</a></li>
+                <li><a href="#portfolio">Improvement</a></li>
+                <li><a href="#contact">Overall Score</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!--/ nav-->
+      <div class="container text-center">
+        <div class="wrapper wow fadeInUp delay-05s">
+          <h2 class="top-title">Let's analyze your FIFA Team</h2>
+          <h3 class="sub-title">and make the game </h3>
+          <h4 class="sub-title">more Intresting than before</h4>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--/ header-->
+  <!---->
+  <section id="cta-1">
+    <div class="container">
+      <div class="row">
+        <div class="cta-info text-center">
+            <h3><span class="dec-tec">“</span>If you only sign the players of one FIFA agent, sometimes you can make the deal, sometimes you can't.<span class="dec-tec">”</span> - Paolo Maldini</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---->
+  <!---->
+  <section id="feature" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 wow fadeInLeft delay-05s">
+          <div class="section-title">
+            <h2 class="head-title">Top 5 Similar Players</h2>
+            <hr class="botm-line">
+            <p class="sec-para">Enter the name of the player to find top 5 similar players. </p>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="col-md-6 wow fadeInRight delay-02s">
+            <div class="icon">
+              <i class="fa fa-soccer-ball-o"></i>
+            </div>
+            <div class="icon-text">
+                <h3 class="txt-tl">Recommend similar player:</h3>
+                <form method="POST" id="Replacements">
+                <input type="text" name="Player Name" placeholder="Player Name" id="playertosearch"/> </p>
+                
+                <input type="submit" class="btn btn-success check1" name="Find replacements" onclick="searchSimilar()">
+                        
+                </form>
+                
+                
+                
+            </div>
+          </div>
+          <div class="col-md-6 wow fadeInRight delay-02s">
+            <div class="icon">
+            </div>
+            <div class="icon-text">
+              <h3 class="txt-tl">Players:</h3>
+                  <!-- <div id="similarss"> -->
+                    <!-- <div id="similarss"></div> -->
+           <!-- <label id="value_lable">
+            {% for suggestion in suggestions_list %}
+                {{ suggestion }}<br>
+            {% endfor %}
+        </label> -->
+              {{ posts1 }} <br>
+              {{ posts2 }} <br>
+              {{ posts3 }} <br>
+              {{ posts4 }} <br>
+              {{ posts5 }} <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---->
+  <!---->
+  <!---->
+  <section class="section-padding parallax bg-image-2 section wow fadeIn delay-08s stylebaaji" id="cta-2">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="cta-txt">
+                  </div>
+              </div>
+              <div class="col-md-4 text-center">              </div>
+          </div>
+      </div>
+  </section>
+  <!---->
+  <!---->
+
+  <section class="section-padding wow fadeInUp delay-05s" id="contact">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-5 col-sm-12">
+                  <div class="section-title">
+                      <h2 class="head-title">Overall Score: {{ score }}</h2>
+                      <hr class="botm-line">
+                      <p class="sec-para">Get the overall predicted score of the player.</p>
+                  </div>
+              </div>
+              <div class="col-md-7">
+                  <div class="col-md-12 wow fadeInRight delay-02s">
+                      <div class="icon">
+                          <i class="fa fa-soccer-ball-o"></i>
+                      </div>
+                      <div class="icon-text">
+                        <form method="POST" id="Replacements">
+                          <h3 class="txt-tl">What is the overall score of the player.</h3>
+                          <input type="text" name="player2" placeholder="Player Name" /> </p>
+                          <input type="submit" class="check1 btn btn-success" name="Find overall" >
+                        </form>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+              <div class="row">
+                <form method="POST" id="Replacements">
+                <div class="col-md-2">
+                <label>Position</label><input type="text" name="position" value={{ posts6 }}>
+                </div>
+                <div class="col-md-2">
+                 <label>International Reputation</label><input type="text" name="intl_rep" value={{ posts7 }}>
+               </div>
+               <div class="col-md-2">
+                  <label>Quality</label><input type="text" name="quality" value={{ posts8 }}>
+                </div>
+                <div class="col-md-2">
+                   <label>Pace</label><input type="text" name="pace" value={{ posts9 }}>
+                 </div>
+                 <div class="col-md-2">
+                     <label>Acceleration</label><input type="text" name="pace_acceleration" value={{ posts10 }}>
+                  </div>
+                  <div class="col-md-2">
+                <label>Sprint Speed</label><input type="text" name="pace_sprint_speed" value={{ posts11 }}>
+                </div>
+                <div class="col-md-2">
+                 <label>Dribbling</label><input type="text" name="dribbling" value={{ posts12 }}>
+               </div>
+               <div class="col-md-2">
+                  <label>Agility</label><input type="text" name="drib_agility" value={{ posts13 }}>
+                </div>
+                <div class="col-md-2">
+                   <label>Balance</label><input type="text" name="drib_balance" value={{ posts14 }}>
+                 </div>
+                 <div class="col-md-2">
+                    <label>Reactions</label><input type="text" name="drib_reactions" value={{ posts15 }}>
+                  </div>
+                  <div class="col-md-2">
+                <label>Ball Control</label><input type="text" name="drib_ball_control" value={{ posts16 }}>
+                </div>
+                <div class="col-md-2">
+                 <label>Potential</label><input type="text" name="drib_dribbling" value={{ posts17 }}>
+               </div>
+               <div class="col-md-2">
+                  <label>Composure</label><input type="text" name="drib_composure" value={{ posts18 }}>
+                </div>
+                <div class="col-md-2">
+                   <label>Shooting</label><input type="text" name="shooting" value={{ posts19 }}>
+                 </div>
+                 <div class="col-md-2">
+                    <label>Positioning</label><input type="text" name="shoot_positioning" value={{ posts20 }}>
+                  </div>
+                  <div class="col-md-2">
+                <label>Finishing</label><input type="text" name="shoot_finishing" value={{ posts21 }}>
+                </div>
+                <div class="col-md-2">
+                 <label>Shoot power</label><input type="text" name="shoot_shot_power" value={{ posts22 }}>
+               </div>
+               <div class="col-md-2">
+                  <label>Long Shots</label><input type="text" name="shoot_long_shots" value={{ posts23 }}>
+                </div>
+                <div class="col-md-2">
+                   <label>Shoot volley</label><input type="text" name="shoot_volleys" value={{ posts24 }}>
+                 </div>
+                 <div class="col-md-2">
+                    <label>Shoot penalties</label><input type="text" name="shoot_penalties" value={{ posts25 }}>
+                  </div>
+                  <div class="col-md-2">
+                <label>Passing</label><input type="text" name="passing" value={{ posts26 }}>
+                </div>
+                <div class="col-md-2">
+                 <label>Vision</label><input type="text" name="pass_vision" value={{ posts27 }}>
+               </div>
+               <div class="col-md-2">
+                  <label>Crossing</label><input type="text" name="pass_crossing" value={{ posts28 }}>
+                </div>
+                <div class="col-md-2">
+                   <label>Free Kick</label><input type="text" name="pass_free_kick" value={{ posts29 }}>
+                 </div>
+                 <div class="col-md-2">
+                    <label>Short Pass</label><input type="text" name="pass_short" value={{ posts30 }}>
+                  </div>
+                  <div class="col-md-2">
+                <label>Long Pass</label><input type="text" name="pass_long" value={{ posts31 }}>
+                </div>
+                <div class="col-md-2">
+                 <label>Pass Curve</label><input type="text" name="pass_curve" value={{ posts32 }}>
+               </div>
+               <div class="col-md-2">
+                  <label>Defending</label><input type="text" name="defending" value={{ posts33 }}>
+                </div>
+                <div class="col-md-2">
+                   <label>Interception</label><input type="text" name="def_interceptions" value={{ posts34 }}>
+                 </div>
+                 <div class="col-md-2">
+                    <label>Heading</label><input type="text" name="def_heading" value={{ posts35 }}>
+                  </div>
+                  <div class="col-md-2">
+                <label>Marking</label><input type="text" name="def_marking" value={{ posts36 }}>
+                </div>
+                <div class="col-md-2">
+                 <label>Stand Tackle</label><input type="text" name="def_stand_tackle" value={{ posts37 }}>
+               </div>
+               <div class="col-md-2">
+                  <label>Slide Tackle</label><input type="text" name="def_slid_tackle" value={{ posts38 }}>
+                </div>
+                <div class="col-md-2">
+                   <label>Physicality</label><input type="text" name="physicality" value={{ posts39 }}>
+                 </div>
+                 <div class="col-md-2">
+                    <label>Jumping</label><input type="text" name="phys_jumping" value={{ posts40 }}>
+                  </div>
+                  <div class="col-md-2">
+                <label>Stamina</label><input type="text" name="phys_stamina" value={{ posts41 }}>
+                </div>
+                <div class="col-md-2">
+                 <label>Strength</label><input type="text" name="phys_strength" value={{ posts42 }}>
+               </div>
+               <div class="col-md-2">
+                  <label>Aggression</label><input type="text" name="phys_aggression" value={{ posts43}}>
+                </div>
+                <div class="col-md-2">
+                   <label>GK Diving</label><input type="text" name="gk_diving" value={{ posts44 }}>
+                 </div>
+                 <div class="col-md-2">
+                    <label>GK Reflexes</label><input type="text" name="gk_reflexes" value={{ posts45 }}>
+                  </div>
+                 <div class="col-md-2">
+                     <label>GK Ball Handling</label><input type="text" name="gk_handling" value={{ posts46 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>GK Speed</label><input type="text" name="gk_speed" value={{ posts47 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>GK Kicking</label><input type="text" name="gk_kicking" value={{ posts48 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>Keeper positioning</label><input type="text" name="gk_positoning" value={{ posts49 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>Preferred foot</label><input type="text" name="pref_foot" value={{ posts50 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>Attack workrate</label><input type="text" name="att_workrate" value={{ posts51 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>Defense workrate</label><input type="text" name="def_workrate" value={{ posts52 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>Weak foot</label><input type="text" name="weak_foot" value={{ posts53 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>Skill Moves</label><input type="text" name="skill_moves" value={{ posts54 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>CB</label><input type="text" name="cb" value={{ posts55 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>RB</label><input type="text" name="rb" value={{ posts56 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>LB</label><input type="text" name="lb" value={{ posts57 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>RWB</label><input type="text" name="rwb" value={{ posts58 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>LWB</label><input type="text" name="lwb" value={{ posts59 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>CDM</label><input type="text" name="cdm" value={{ posts60 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>CM</label><input type="text" name="cm" value={{ posts61 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>RM</label><input type="text" name="rm" value={{ posts62 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>LM</label><input type="text" name="lm" value={{ posts63 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>CAM</label><input type="text" name="cam" value={{ posts64 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>CF</label><input type="text" name="cf" value={{ posts65 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>RF</label><input type="text" name="rf" value={{ posts66 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>LF</label><input type="text" name="lf" value={{ posts67 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>RW</label><input type="text" name="rw" value={{ posts68 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>LW</label><input type="text" name="lw" value={{ posts69 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>ST</label><input type="text" name="st" value={{ posts70 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>Age</label><input type="text" name="age" value={{ posts71 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>Height</label><input type="text" name="height" value={{ posts72 }}>
+                         </div>
+                 <div class="col-md-2">
+                     <label>Weight</label><input type="text" name="weight" value={{ posts73 }}>
+                         </div>
+                 </div>
+                        <div class="row">
+                            <input type="submit" class="check btn btn-success check" value="Find Score" name="Find replacements">
+                        </row>
+                  </form>
+              
+          </div>
+        </section>
+  
+  <!---->
+  <section class="section-padding parallax bg-image-2 section wow fadeIn delay-08s stylebaaji" id="cta-2">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="cta-txt">
+                  </div>
+              </div>
+              <div class="col-md-4 text-center">
+                 
+              </div>
+          </div>
+      </div>
+  </section>
+  <!---->
+  <!---->
+
+  
+  <section class="section-padding wow fadeInUp delay-05s" id="">
+    <div class="container">
+      <div class="row white">
+        <div class="col-md-8 col-sm-12">
+          <div class="section-title">
+              <h2 class="head-title black">Submitted By:</h2>
+            <hr class="botm-line">
+            <p class="sec-para black">This Submission is for the Data Mining class (CMPE 255)</p>
+          </div>
+        </div>
+        
+        
+        <div class="col-md-12 col-sm-12">
+          <div class="col-md-8 col-sm-6" style="padding-left:0px;">
+              <h3 class="cont-title">Visit Us</h3>
+              <div class="location-info">
+                  <p class="white"><span aria-hidden="true" class="fa fa-map-marker"></span>San Jose State University</p>
+                  <p class="white"><span aria-hidden="true" class="fa fa-phone"></span>Phone: 669-214-6668 , 669-350-8873 , 669-248-9672</p>
+                  <p class="white"><span aria-hidden="true" class="fa fa-envelope"></span>Email: <a href="" class="link-dec"> shashwat.jain@sjsu.edu, ankit.joshi@sjsu.edu, shubham.patil@sjsu.edu</a></p>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="contact-icon-container hidden-md hidden-sm hidden-xs">
+                  <span aria-hidden="true" class="fa fa-envelope-o"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!---->
+  <!--contact ends-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/wow.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="contactform/contactform.js"></script>
+
+</body>
+</html>
