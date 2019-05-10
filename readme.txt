@@ -1,6 +1,6 @@
-##CMPE 255 - Fifa Predict Player Overall Rating and Find Similar Players
+## CMPE 255 - Fifa Predict Player Overall Rating and Find Similar Players
 
-####To test code on Web UI, run 'Final_code.ipynb.
+#### To test code on Web UI, run 'Final_code.ipynb.
 
 To visualize data, run 'visualization.ipynb.
 
